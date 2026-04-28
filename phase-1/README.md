@@ -22,7 +22,7 @@
 | 05 | `prog-05.js` | String Operations and Concatenation | String methods and template literals | Complete |
 | 06 | `prog-06.js` | Arithmetic Operations | Math operators, increment, and decrement | Complete |
 | 07 | `prog-07.js` | Comparison Operators | Equality and relational comparisons | Complete |
-| 08 | `prog-08.js` | Logical Operators | `&&`, `| `!`, and nullish coalescing | Complete |
+| 08 | `prog-08.js` | Logical Operators | `&&`, `| Complete |
 | 09 | `prog-09.js` | Type Coercion and Conversion | Implicit vs explicit type conversion | Complete |
 | 10 | `prog-10.js` | User Input with `prompt()` | Input handling and numeric parsing | Complete |
 | 11 | `prog-11.js` | If-Else Statement | Conditional branching | Complete |
