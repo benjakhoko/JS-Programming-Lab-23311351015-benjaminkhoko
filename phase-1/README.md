@@ -9,6 +9,7 @@
 | Course / Lab | JavaScript Programming Laboratory |
 | Phase | Phase 1 |
 | Total Programs | 20 |
+| Completion Status | 20/20 Complete |
 
 ## Full Program Index
 
@@ -29,10 +30,15 @@
 | 13 | `prog-13.js` | Switch Statement | Multi-case control flow | Complete |
 | 14 | `prog-14.js` | For Loop - Basic Iteration | Counting and multiplication table | Complete |
 | 15 | `prog-15.js` | Nested For Loops | Pattern generation with nested loops | Complete |
-| 16 | `prog-16-js` | While Loop | Condition-driven repetition | Complete |
+| 16 | `prog-16.js` | While Loop | Condition-driven repetition | Complete |
 | 17 | `prog-17.js` | Do-While Loop | Loop that runs at least once | Complete |
 | 18 | `prog-18.js` | Break and Continue | Loop control keywords | Complete |
 | 19 | `prog-19.js` | Error Handling with `try...catch...finally` | Runtime exception handling | Complete |
 | 20 | `prog-20.js` | Custom Error Types | Custom classes extending `Error` | Complete |
 
-> Note: Program 16 uses the file name `prog-16-js` (without `.js`) in the current folder.
+## How to Run
+
+1. Run any program with Node.js:
+   - `node phase-1/prog-01.js`
+2. For browser-based input/output programs, load from `index.html` or include the target file in a script tag.
+
