@@ -1,6 +1,6 @@
 console.log("STUDENT: [benjamin khoko]");
 console.log("ID: [23311351015]");
-console.log("PROGRAM: [36] - [OBJECT.CREATE() AND PURE PROTOTYPAL INHERITANC ] ");
+console.log("PROGRAM: [37] - [OBJECT.CREATE() AND PURE PROTOTYPAL INHERITANC ] ");
 console.log("EXECUTION DATE: " + new Date().toLocaleString());
 console.log("SESSION TOKEN: " + Math.random().toString(36).substring(2, 15).toUpperCase());
 console.log("VERIFICATION HASH: " + btoa("[Your Institution ID]" + Date.now()).substring(0, 
