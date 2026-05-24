@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive JavaScript Control Statements</title>
+</head>
+<body>
+
+<h1>Interactive JavaScript Control Statements</h1>
+
+<h2>Conditional Statements</h2>
+
+<p>Check if you're an adult:</p>
+<input type="number" id="ageInput" placeholder="Enter age">
+<button onclick="checkAge()">Check Age</button>
+<p id="ageResult"></p>
+
+<p>Check temperature status:</p>
+<input type="number" id="tempInput" placeholder="Enter temperature">
+<button onclick="checkTemperature()">Check Temperature</button>
+<p id="tempResult"></p>
+
+<h2>Looping Statements</h2>
+
+<p>Count numbers up to:</p>
+<input type="number" id="loopInput" placeholder="Enter number">
+<button onclick="runLoop()">Run Loop</button>
+<p id="loopResult"></p>
+
+<script>
+function checkAge() {
+    let age = document.getElementById("ageInput").value;
+    let result = document.getElementById("ageResult");
+
+    if (age >= 18) {
+        result.innerHTML = "You are an adult (" + age + " years old)";
+        result.style.color = "green";
+    } else {
+        result.innerHTML = "You are not an adult (" + age + " years old)";
+        result.style.color = "red";
+    }
+}
+
+function checkTemperature() {
+    let temp = document.getElementById("tempInput").value;
+    let result = document.getElementById("tempResult");
+
+    if (temp >= 30) {
+        result.innerHTML = temp + "°C - It's hot outside!";
+        result.style.color = "red";
+    } else if (temp >= 15) {
+        result.innerHTML = temp + "°C - The weather is moderate.";
+        result.style.color = "orange";
+    } else {
+        result.innerHTML = temp + "°C - It's cold outside!";
+        result.style.color = "blue";
+    }
+}
+
+function runLoop() {
+    let num = document.getElementById("loopInput").value;
+    let result = document.getElementById("loopResult");
+    let output = "";
+
+    for (let i = 0; i <= num; i++) {
+        output += i + " ";
+    }
+
+    result.innerHTML = output;
+}
+</script>
+
+</body>
+</html>
