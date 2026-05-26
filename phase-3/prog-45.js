@@ -6,82 +6,116 @@ console.log("SESSION TOKEN: " + Math.random().toString(36).substring(2, 15).toUp
 console.log("VERIFICATION HASH: " + btoa("[Your Institution ID]" + Date.now()).substring(0, 
 12));
 console.log("=".repeat(55));
-// Program 45: Methods that modify arrays 
-let fruits = ['apple', 'banana', 'orange']; 
-console.log("Original array:", fruits); 
-console.log("\n--- push() - add to end ---"); 
-let pushResult = fruits.push('mango', 'grape'); 
-console.log("After push:", fruits); 
-console.log("push() return value (new length):", pushResult);  
-console.log("\n--- pop() - remove from end ---"); 
-let popped = fruits.pop(); 
-console.log("After pop():", fruits); 
-console.log("pop() return value:", popped); 
-console.log("\n--- unshift() - add to beginning ---"); 
-let unshiftResult = fruits.unshift('kiwi', 'peach'); 
-console.log("After unshift():", fruits); 
-console.log("unshift() return value:", unshiftResult); 
-console.log("\n--- shift() - remove from beginning ---"); 
-let shifted = fruits.shift(); 
-console.log("After shift():", fruits); 
-console.log("shift() return value:", shifted); 
-console.log("\n--- splice() - Swiss Army knife ---"); 
-let colors = ['red', 'green', 'blue', 'yellow', 'purple']; 
-console.log("Colors array:", colors); 
-// Remove elements 
-let removed = colors.splice(1, 2); 
-console.log("\nAfter splice(1, 2) - remove 2 from index 1:"); 
-console.log("Modified array:", colors); 
-console.log("Removed elements:", removed); 
-// Insert elements  
-colors = ['red', 'green', 'blue']; 
-console.log("\nBefore insert:", colors); 
-colors.splice(1, 0, 'yellow', 'orange'); 
-console.log("After splice(1, 0, 'yellow', 'orange'):", colors); 
-// Replace elements 
-colors = ['red', 'green', 'blue']; 
-console.log("\nBefore replace:", colors); 
-let replaced = colors.splice(1, 1, 'cyan', 'magenta'); 
-console.log("After splice(1, 1, 'cyan', 'magenta'):", colors); 
-console.log("Replaced element:", replaced); 
-console.log("\n--- splice() with negative index ---"); 
-let letters = ['a', 'b', 'c', 'd', 'e']; 
-console.log("Letters:", letters); 
-let removedFromEnd = letters.splice(-2, 1); 
-console.log("After splice(-2, 1):", letters); 
-console.log("Removed:", removedFromEnd); 
-console.log("\n--- fill() - fill array with value ---"); 
-let numbers = [1, 2, 3, 4, 5]; 
-console.log("Original:", numbers); 
-numbers.fill(0); 
-console.log("After fill(0):", numbers); 
-numbers = [1, 2, 3, 4, 5]; 
-numbers.fill(9, 1, 4); 
-console.log("After fill(9, 1, 4):", numbers); 
-console.log("\n--- copyWithin() - copy within array ---"); 
-let arr = [1, 2, 3, 4, 5]; 
-console.log("Original:", arr); 
-arr.copyWithin(0, 3); 
-console.log("After copyWithin(0, 3):", arr); 
-arr = [1, 2, 3, 4, 5]; 
-arr.copyWithin(1, 2, 4); 
-console.log("After copyWithin(1, 2, 4):", arr); 
-console.log("\n--- Practical Stack and Queue Examples ---"); 
-// Stack (LIFO) using push/pop 
-let stack = []; 
-stack.push('page1'); 
-stack.push('page2'); 
-stack.push('page3'); 
-console.log("Stack:", stack); 
-console.log("Pop:", stack.pop()); 
-console.log("Pop:", stack.pop()); 
-console.log("Stack after pops:", stack); 
-// Queue (FIFO) using push/shift 
-let queue = []; 
-queue.push('task1'); 
-queue.push('task2'); 
-queue.push('task3'); 
-console.log("\nQueue:", queue); 
-console.log("Dequeue:", queue.shift()); 
-console.log("Dequeue:", queue.shift()); 
-console.log("Queue after dequeues:", queue); 
+// Program 45: Array Modification Methods Example
+
+let animals = ['cat', 'dog', 'rabbit'];
+console.log("Initial array:", animals);
+
+console.log("\n=== push() : Add items at the end ===");
+let totalItems = animals.push('lion', 'tiger');
+console.log("Updated array:", animals);
+console.log("New length returned:", totalItems);
+
+console.log("\n=== pop() : Remove last item ===");
+let lastAnimal = animals.pop();
+console.log("Array after pop():", animals);
+console.log("Removed item:", lastAnimal);
+
+console.log("\n=== unshift() : Add items at the beginning ===");
+let startCount = animals.unshift('elephant', 'zebra');
+console.log("Updated array:", animals);
+console.log("New length:", startCount);
+
+console.log("\n=== shift() : Remove first item ===");
+let firstAnimal = animals.shift();
+console.log("Array after shift():", animals);
+console.log("Removed first item:", firstAnimal);
+
+console.log("\n=== splice() : Insert, Remove, Replace ===");
+
+let cities = ['Paris', 'London', 'Tokyo', 'Berlin', 'Rome'];
+console.log("Cities array:", cities);
+
+// Removing elements
+let deletedCities = cities.splice(2, 2);
+console.log("\nAfter removing 2 cities from index 2:");
+console.log("Modified array:", cities);
+console.log("Deleted cities:", deletedCities);
+
+// Inserting elements
+cities = ['Paris', 'London', 'Tokyo'];
+console.log("\nBefore inserting:", cities);
+
+cities.splice(1, 0, 'Dubai', 'Sydney');
+console.log("After insertion:", cities);
+
+// Replacing elements
+cities = ['Paris', 'London', 'Tokyo'];
+console.log("\nBefore replacement:", cities);
+
+let oldCity = cities.splice(1, 1, 'Moscow', 'Beijing');
+console.log("After replacement:", cities);
+console.log("Replaced city:", oldCity);
+
+console.log("\n=== splice() with negative position ===");
+
+let grades = ['A', 'B', 'C', 'D', 'E'];
+console.log("Original grades:", grades);
+
+let removedGrade = grades.splice(-3, 1);
+console.log("After splice(-3,1):", grades);
+console.log("Removed grade:", removedGrade);
+
+console.log("\n=== fill() : Fill array with values ===");
+
+let marks = [10, 20, 30, 40, 50];
+console.log("Original marks:", marks);
+
+marks.fill(5);
+console.log("After fill(5):", marks);
+
+marks = [10, 20, 30, 40, 50];
+marks.fill(7, 1, 4);
+console.log("After fill(7,1,4):", marks);
+
+console.log("\n=== copyWithin() : Copy elements inside array ===");
+
+let values = [11, 22, 33, 44, 55];
+console.log("Original values:", values);
+
+values.copyWithin(0, 2);
+console.log("After copyWithin(0,2):", values);
+
+values = [11, 22, 33, 44, 55];
+values.copyWithin(2, 0, 2);
+console.log("After copyWithin(2,0,2):", values);
+
+console.log("\n=== Stack Example (LIFO) ===");
+
+let browserTabs = [];
+
+browserTabs.push('Home');
+browserTabs.push('About');
+browserTabs.push('Contact');
+
+console.log("Tabs opened:", browserTabs);
+
+console.log("Closed tab:", browserTabs.pop());
+console.log("Closed tab:", browserTabs.pop());
+
+console.log("Remaining tabs:", browserTabs);
+
+console.log("\n=== Queue Example (FIFO) ===");
+
+let customers = [];
+
+customers.push('Customer1');
+customers.push('Customer2');
+customers.push('Customer3');
+
+console.log("Customer queue:", customers);
+
+console.log("Served:", customers.shift());
+console.log("Served:", customers.shift());
+
+console.log("Remaining customers:", customers);

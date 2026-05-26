@@ -6,83 +6,141 @@ console.log("SESSION TOKEN: " + Math.random().toString(36).substring(2, 15).toUp
 console.log("VERIFICATION HASH: " + btoa("[Your Institution ID]" + Date.now()).substring(0, 
 12));
 console.log("=".repeat(55)); 
-// Program 46: Sorting arrays with custom comparators 
-console.log("--- Default sort (lexicographic) ---"); 
-let fruits = ['banana', 'Apple', 'cherry', 'date']; 
-console.log("Original:", fruits); 
-console.log("Default sort:", fruits.sort()); 
-console.log("Original modified!", fruits); 
-console.log("\n--- Numeric sort (with compare function) ---"); 
-let numbers = [10, 5, 40, 25, 100, 1, 3]; 
-console.log("Original:", numbers); 
-// Ascending 
-let ascending = [...numbers].sort((a, b) => a - b); 
-console.log("Ascending:", ascending); 
-// Descending 
-let descending = [...numbers].sort((a, b) => b - a); 
-console.log("Descending:", descending); 
-console.log("\n--- Sorting objects ---"); 
-const students = [ 
-{ name: 'Charlie', grade: 85, age: 20 }, 
-{ name: 'Alice', grade: 92, age: 22 }, 
-{ name: 'Bob', grade: 78, age: 19 }, 
-{ name: 'David', grade: 95, age: 21 }, 
-{ name: 'Eve', grade: 88, age: 20 } 
-]; 
-// Sort by grade (ascending) 
-const byGrade = [...students].sort((a, b) => a.grade - b.grade); 
-console.log("Sorted by grade:", byGrade.map(s => 
-`${s.name}:${s.grade}`)); 
-// Sort by name (alphabetical) 
-const byName = [...students].sort((a, b) => 
-a.name.localeCompare(b.name)); 
-console.log("Sorted by name:", byName.map(s => s.name));  
-// Sort by age descending, then by grade descending 
-const byAgeThenGrade = [...students].sort((a, b) => { 
-if (a.age !== b.age) return b.age - a.age; 
-return b.grade - a.grade; 
-}); 
-console.log("Sorted by age desc, then grade desc:",  
-byAgeThenGrade.map(s => `${s.name} (${s.age}, ${s.grade})`)); 
-console.log("\n--- reverse() ---"); 
-let arr = [1, 2, 3, 4, 5]; 
-console.log("Original:", arr); 
-arr.reverse(); 
-console.log("After reverse():", arr); 
-console.log("\n--- toSorted() and toReversed() (ES2023+) ---"); 
-if (typeof Array.prototype.toSorted === 'function') { 
-let original = [3, 1, 4, 1, 5]; 
-let sorted = original.toSorted((a, b) => a - b); 
-console.log("Original unchanged:", original); 
-console.log("New sorted array:", sorted); 
-let reversed = original.toReversed(); 
-console.log("New reversed array:", reversed); 
-}  
-console.log("\n--- Complex sorting example ---"); 
-const tasks = [ 
-{ name: 'Task A', priority: 'high', completed: false }, 
-{ name: 'Task B', priority: 'low', completed: true }, 
-{ name: 'Task C', priority: 'medium', completed: false }, 
-{ name: 'Task D', priority: 'high', completed: true }, 
-{ name: 'Task E', priority: 'low', completed: false } 
-]; 
-const priorityOrder = { 'high': 1, 'medium': 2, 'low': 3 }; 
-const sortedTasks = [...tasks].sort((a, b) => { 
-// Incomplete tasks first 
-if (a.completed !== b.completed) return a.completed ? 1 : -1; 
-// Then by priority 
-return priorityOrder[a.priority] - priorityOrder[b.priority]; 
-}); 
-console.log("Sorted tasks (incomplete first, then priority):"); 
-sortedTasks.forEach(t => { 
-console.log(`  ${t.completed ? '✓' : '○'} ${t.name} (${t.priority})`); 
-}); 
-console.log("\n--- Stable sorting ---"); 
-const items = [ 
-{ category: 'A', value: 100 }, 
-{ category: 'B', value: 200 }, 
-{ category: 'A', value: 300 }, 
-{ category: 'B', value: 400 } 
-]; 
-const sorted = items.sort((a, b) => a.category.localeCompare(b.category)); 
-console.log("Stable sort by category:", sorted);
+// Program 46: Sorting Arrays with Different Comparators
+
+console.log("=== Default Sorting (Alphabetical Order) ===");
+
+let fruits = ['mango', 'apple', 'banana', 'grape'];
+console.log("Original array:", fruits);
+
+console.log("Sorted array:", fruits.sort());
+console.log("Original array changed:", fruits);
+
+console.log("\n=== Numeric Sorting with Compare Function ===");
+
+let scores = [45, 12, 89, 23, 5, 100, 67];
+console.log("Original scores:", scores);
+
+// Ascending order
+let lowToHigh = [...scores].sort((a, b) => a - b);
+console.log("Ascending order:", lowToHigh);
+
+// Descending order
+let highToLow = [...scores].sort((a, b) => b - a);
+console.log("Descending order:", highToLow);
+
+console.log("\n=== Sorting Objects ===");
+
+const employees = [
+    { name: 'John', salary: 50000, age: 30 },
+    { name: 'Sarah', salary: 75000, age: 28 },
+    { name: 'Mike', salary: 45000, age: 35 },
+    { name: 'Emma', salary: 82000, age: 26 },
+    { name: 'Daniel', salary: 60000, age: 30 }
+];
+
+// Sort by salary
+const bySalary = [...employees].sort((a, b) => a.salary - b.salary);
+
+console.log("Sorted by salary:");
+console.log(bySalary.map(emp => `${emp.name}: ${emp.salary}`));
+
+// Sort by name
+const byEmployeeName = [...employees].sort((a, b) =>
+    a.name.localeCompare(b.name)
+);
+
+console.log("\nSorted by name:");
+console.log(byEmployeeName.map(emp => emp.name));
+
+// Sort by age descending, then salary descending
+const byAgeAndSalary = [...employees].sort((a, b) => {
+    if (a.age !== b.age) {
+        return b.age - a.age;
+    }
+
+    return b.salary - a.salary;
+});
+
+console.log("\nSorted by age descending then salary descending:");
+console.log(
+    byAgeAndSalary.map(emp =>
+        `${emp.name} (${emp.age}, ${emp.salary})`
+    )
+);
+
+console.log("\n=== reverse() Method ===");
+
+let digits = [1, 2, 3, 4, 5];
+console.log("Original digits:", digits);
+
+digits.reverse();
+
+console.log("After reverse():", digits);
+
+console.log("\n=== toSorted() and toReversed() Methods ===");
+
+if (typeof Array.prototype.toSorted === 'function') {
+
+    let values = [9, 4, 7, 1, 6];
+
+    let sortedValues = values.toSorted((a, b) => a - b);
+
+    console.log("Original array remains unchanged:", values);
+    console.log("New sorted array:", sortedValues);
+
+    let reversedValues = values.toReversed();
+
+    console.log("New reversed array:", reversedValues);
+}
+
+console.log("\n=== Complex Sorting Example ===");
+
+const projects = [
+    { title: 'Project A', status: 'urgent', finished: false },
+    { title: 'Project B', status: 'low', finished: true },
+    { title: 'Project C', status: 'medium', finished: false },
+    { title: 'Project D', status: 'urgent', finished: true },
+    { title: 'Project E', status: 'low', finished: false }
+];
+
+const statusOrder = {
+    urgent: 1,
+    medium: 2,
+    low: 3
+};
+
+const arrangedProjects = [...projects].sort((a, b) => {
+
+    // Unfinished projects first
+    if (a.finished !== b.finished) {
+        return a.finished ? 1 : -1;
+    }
+
+    // Then sort by status priority
+    return statusOrder[a.status] - statusOrder[b.status];
+});
+
+console.log("Projects sorted by completion and priority:");
+
+arrangedProjects.forEach(project => {
+    console.log(
+        `${project.finished ? '✔' : '○'} ${project.title} (${project.status})`
+    );
+});
+
+console.log("\n=== Stable Sorting Example ===");
+
+const products = [
+    { type: 'Electronics', price: 500 },
+    { type: 'Furniture', price: 800 },
+    { type: 'Electronics', price: 1200 },
+    { type: 'Furniture', price: 1500 }
+];
+
+const sortedProducts = [...products].sort((a, b) =>
+    a.type.localeCompare(b.type)
+);
+
+console.log("Sorted by product type:");
+console.log(sortedProducts);

@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
         password: { 
             required: true, 
             minLength: 8, 
-            pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d@$!%*?&]{8,}$/, 
+            pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zAZ\d@$!%*?&]{8,}$/, 
             message: 'Password must be 8+ chars with uppercase, lowercase, and number' 
         }, 
         confirmPassword: { 
@@ -65,8 +65,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Get form and fields 
     const form = document.getElementById('validation-form'); 
     const fields = document.querySelectorAll('[data-validate]'); 
-    const submitBtn = document.getElementById('submit-btn') || document.getElementById('submitbtn'); 
-    const resetBtn = document.getElementById('reset-btn') || document.getElementById('resetbtn'); 
+    const submitBtn = document.getElementById('submit-btn'); 
+    const resetBtn = document.getElementById('reset-btn'); 
     const successMessage = document.getElementById('success-message'); 
     // Validation state 
     const fieldState = new Map(); 
@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', function() {
     } 
      
     // Validate entire form 
-    function validateForm(updateSubmitState = false) { 
+    function validateForm() { 
         let isValid = true; 
          
         fields.forEach(field => { 
@@ -208,7 +208,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }); 
          
         // Update submit button 
-        if (submitBtn && updateSubmitState) { 
+        if (submitBtn) { 
             submitBtn.disabled = !isValid; 
         } 
          
@@ -222,14 +222,14 @@ document.addEventListener('DOMContentLoaded', function() {
             if (state.touched) { 
                 validateField(this); 
             } 
-            validateForm(false); 
+            validateForm(); 
         }); 
          
         field.addEventListener('blur', function() { 
             const state = fieldState.get(this.id); 
             state.touched = true; 
             validateField(this); 
-            validateForm(false); 
+            validateForm(); 
         }); 
          
         field.addEventListener('focus', function() { 
@@ -338,15 +338,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (errorIcon) errorIcon.style.display = 'none'; 
             }); 
              
+            if (submitBtn) submitBtn.disabled = true; 
             if (successMessage) successMessage.style.display = 'none'; 
             if (strengthBar) strengthBar.style.width = '0%';  
             if (strengthText) strengthText.textContent = ''; 
         }); 
     } 
      
-    // Keep submit always clickable so submit can trigger full validation feedback. 
+    // Initialize submit button state 
     if (submitBtn) { 
-        submitBtn.disabled = false; 
+        submitBtn.disabled = true; 
     } 
 }); 
  
