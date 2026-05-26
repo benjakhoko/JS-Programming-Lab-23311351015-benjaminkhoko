@@ -5,32 +5,113 @@ console.log("EXECUTION DATE: " + new Date().toLocaleString());
 console.log("SESSION TOKEN: " + Math.random().toString(36).substring(2, 15).toUpperCase());
 console.log("VERIFICATION HASH: " + btoa("[Your Institution ID]" + Date.now()).substring(0, 12));
 console.log("=".repeat(55));
-// Program 52: Selecting DOM elements 
-// Note: This program expects to run in a browser with HTML elements 
-// Wait for DOM to load 
-document.addEventListener('DOMContentLoaded', function() { 
-console.log("--- getElementById ---"); 
-const header = document.getElementById('main-header'); 
-if (header) { 
-console.log("Found header:", header); 
-console.log("Header text:", header.textContent); 
-} 
-console.log("\n--- getElementsByClassName ---"); 
- 
-const items = document.getElementsByClassName('item'); 
-console.log("Items (HTMLCollection):", items); 
-console.log("Number of items:", items.length); 
-// HTMLCollection is live! 
-for (let i = 0; i < items.length; i++) { 
-console.log(`Item ${i}:`, items[i].textContent); 
-} 
-console.log("\n--- getElementsByTagName ---"); 
-const paragraphs = document.getElementsByTagName('p'); 
-console.log("Paragraphs:", paragraphs); 
-console.log("First paragraph:", paragraphs[0]?.textContent); 
-console.log("\n--- querySelector ---"); 
-const firstItem = document.querySelector('.item'); 
-console.log("First .item:", firstItem?.textContent); 
-const nestedElement = document.querySelector('.container .nested'); 
-console.log("Nested element:", nestedElement?.textContent);
+// Program 52: Selecting DOM Elements
+
+// This program works inside a browser environment
+
+// Run code after HTML page finishes loading
+document.addEventListener('DOMContentLoaded', function () {
+
+    console.log("=== getElementById() ===");
+
+    const title = document.getElementById('page-title');
+
+    if (title) {
+
+        console.log("Element found:", title);
+
+        console.log("Element text:", title.textContent);
+    }
+
+    console.log("\n=== getElementsByClassName() ===");
+
+    const products = document.getElementsByClassName('product');
+
+    console.log("HTMLCollection:", products);
+
+    console.log("Total products:", products.length);
+
+    // Loop through HTMLCollection
+    for (let i = 0; i < products.length; i++) {
+
+        console.log(
+            `Product ${i + 1}: ${products[i].textContent}`
+        );
+    }
+
+    console.log("\n=== getElementsByTagName() ===");
+
+    const headings = document.getElementsByTagName('h2');
+
+    console.log("Heading elements:", headings);
+
+    console.log(
+        "First heading:",
+        headings[0]?.textContent
+    );
+
+    console.log("\n=== querySelector() ===");
+
+    const firstProduct =
+        document.querySelector('.product');
+
+    console.log(
+        "First product:",
+        firstProduct?.textContent
+    );
+
+    const specialElement =
+        document.querySelector('.wrapper .special');
+
+    console.log(
+        "Nested selected element:",
+        specialElement?.textContent
+    );
+
+    console.log("\n=== querySelectorAll() ===");
+
+    const allProducts =
+        document.querySelectorAll('.product');
+
+    console.log("NodeList:", allProducts);
+
+    allProducts.forEach((element, index) => {
+
+        console.log(
+            `Product ${index + 1}: ${element.textContent}`
+        );
+    });
+
+    console.log("\n=== Selecting by Attribute ===");
+
+    const inputField =
+        document.querySelector('input[type="text"]');
+
+    console.log("Input field:", inputField);
+
+    console.log("\n=== Selecting Multiple Elements ===");
+
+    const buttons =
+        document.querySelectorAll('button');
+
+    buttons.forEach((button, index) => {
+
+        console.log(
+            `Button ${index + 1}: ${button.textContent}`
+        );
+    });
+
+    console.log("\n=== Checking Element Existence ===");
+
+    const footer =
+        document.getElementById('footer');
+
+    if (footer) {
+
+        console.log("Footer exists:", footer.textContent);
+
+    } else {
+
+        console.log("Footer element not found");
+    }
 });
