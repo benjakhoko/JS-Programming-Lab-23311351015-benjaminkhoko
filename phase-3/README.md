@@ -8,8 +8,8 @@
 | Student ID | 23311351015 |
 | Course / Lab | JavaScript Programming Laboratory |
 | Phase | Phase 3 |
-| Total Programs | 19 |
-| Completion Status | 19/19 Complete |
+| Total Programs | 32 |
+| Completion Status | 32/32 Complete |
 
 ## Full Program Index
 
@@ -34,8 +34,23 @@
 | 57 | `prog-57.html`, `prog-57.js` | Populating a Table with JavaScript | Practical DOM rendering example | Browser | Complete |
 | 58 | `prog-58.js` | Regular Expressions - Pattern Matching and Validation | RegEx syntax, matching, and validation patterns | Node.js | Complete |
 | 59 | `prog-59.html`, `prog-59.js` | Form Validation with RegEx and DOM | Full form validation using DOM + RegEx | Browser | Complete |
+| 60 | `prog-60.js` | Navigator Object and Browser Detection | Using `navigator` properties for browser/platform detection | Browser | Complete |
+| 61 | `prog-61.html`, `prog-61.js` | DOM Tree Traversal - Comprehensive Example | Navigating parent, child, and sibling nodes in the DOM tree | Browser | Complete |
+| 62 | `prog-62.js` | Advanced DOM 2 Event Handling | Handling multiple DOM events and interactions dynamically | Browser | Complete |
+| 63 | `prog-63.js` | Dynamic Positioning - Absolute and Relative | Positioning elements using CSS absolute and relative layouts | Browser | Complete |
+| 64 | `prog-64.js` | Moving Elements with JavaScript Animation | Basic element motion using JavaScript-driven animation | Browser | Complete |
+| 65 | `prog-65.js` | Element Visibility Control and Toggling | Showing, hiding, and toggling UI elements | Browser | Complete |
+| 66 | `prog-66.js` | Z-Index and Stacking Elements | Layering and visual stacking order with `z-index` | Browser | Complete |
+| 67 | `prog-67.js` | Mouse Tracking and Cursor Effects | Capturing mouse movement and applying cursor-based effects | Browser | Complete |
+| 68 | `prog-68.js` | Smooth Element Movement (Animation Loop) | Continuous animation loops for smooth element movement | Browser | Complete |
+| 69 | `prog-69.js` | Drag and Drop Implementation | Implementing draggable elements with mouse events | Browser | Complete |
+| 70 | `prog-70.js` | XML Parsing and Display with JavaScript | Parsing XML data and rendering structured output | Browser | Complete |
+| 71 | `prog-71.js` | XML with CSS Styling | Presenting XML data with styling rules and formatted display | Browser | Complete |
+| 72 | `prog-72.js` | XSLT Transformation Example | Transforming XML content using XSLT | Browser | Complete |
 
 ## Topics Covered
+
+Update: The following programs are just topics from the full list of programs given in Phase 3.
 
 ### Arrays (prog-41 to prog-50)
 - Array creation and basic methods
@@ -59,6 +74,13 @@
 - Validation patterns for common input types
 - Form validation with immediate user feedback
 
+### Browser APIs, Interaction, and XML Processing (prog-60 to prog-72)
+- Navigator object and browser detection
+- DOM tree traversal and advanced event handling
+- Dynamic positioning, animation, and visibility toggling
+- Stacking contexts, mouse tracking, and drag-and-drop
+- XML parsing, XML styling, and XSLT transformation
+
 ## How to Run
 
 1. Run Node.js-based programs from terminal:
@@ -73,4 +95,5 @@
    - `phase-3/prog-56.html`
    - `phase-3/prog-57.html`
    - `phase-3/prog-59.html`
-3. For DOM scripts without dedicated HTML (`prog-51.js`, `prog-52.js`), include them in an HTML page that contains matching elements.
+   - `phase-3/prog-61.html`
+3. For browser scripts without dedicated HTML (`prog-51.js`, `prog-52.js`, `prog-60.js`, `prog-62.js` to `prog-72.js`), include them in an HTML page before running.
